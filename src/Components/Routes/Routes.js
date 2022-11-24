@@ -7,6 +7,7 @@ import Home from "../Layouts/Outlets/Home/Home";
 import Main from "../Layouts/Outlets/Main/Main";
 import LogIn from "../Layouts/Outlets/logIn/LogIn";
 import Registration from "../Layouts/Outlets/Registration/Registration";
+import NotFound from "../Errors/NotFound";
 
 export const routes = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const routes = createBrowserRouter([
       {
         path: "registration",
         element: <Registration></Registration>,
+      },
+      {
+        path: "*",
+        element: <NotFound></NotFound>,
       },
     ],
   },
