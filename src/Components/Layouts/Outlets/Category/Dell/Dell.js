@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
+import useTitle from "../../../../../Hooks/useTitle";
 
 const Dell = () => {
-  return (
-    <div>
-      dell
-    </div>
-  );
+  useTitle("Dell");
+  return <div>dell</div>;
 };
 
 export default Dell;

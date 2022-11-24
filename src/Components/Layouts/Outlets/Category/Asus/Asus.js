@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
+import useTitle from "../../../../../Hooks/useTitle";
 
 const Asus = () => {
-  return (
-    <div>
-      asus
-    </div>
-  );
+  useTitle("Asus");
+  return <div>asus</div>;
 };
 
 export default Asus;
