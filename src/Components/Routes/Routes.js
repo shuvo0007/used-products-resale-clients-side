@@ -5,32 +5,42 @@ import Dell from "../Layouts/Outlets/Category/Dell/Dell";
 import Hp from "../Layouts/Outlets/Category/Hp/Hp";
 import Home from "../Layouts/Outlets/Home/Home";
 import Main from "../Layouts/Outlets/Main/Main";
+import LogIn from "../Layouts/Outlets/logIn/LogIn";
+import Registration from "../Layouts/Outlets/Registration/Registration";
 
-export const routes  = createBrowserRouter([
+export const routes = createBrowserRouter([
   {
-    path:'/',
-    element:<Home></Home>,
-    children:[
+    path: "/",
+    element: <Home></Home>,
+    children: [
       {
-        path:'/',
-        element:<Main></Main>
+        path: "/",
+        element: <Main></Main>,
       },
       {
-        path:'/blog',
-        element:<Blog></Blog>
-      }
-      ,{
-        path:'/asus',
-        element:<Asus></Asus>
-      }
-      ,{
-        path:'/hp',
-        element:<Hp></Hp>
-      }
-      ,{
-        path:'/dell',
-        element:<Dell></Dell>
-      }
-    ]
-  }
-])
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/asus",
+        element: <Asus></Asus>,
+      },
+      {
+        path: "/hp",
+        element: <Hp></Hp>,
+      },
+      {
+        path: "/dell",
+        element: <Dell></Dell>,
+      },
+      {
+        path: "login",
+        element: <LogIn></LogIn>,
+      },
+      {
+        path: "registration",
+        element: <Registration></Registration>,
+      },
+    ],
+  },
+]);
