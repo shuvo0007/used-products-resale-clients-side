@@ -6,7 +6,7 @@ const Main = () => {
   useTitle("Home");
   return (
     <div>
-      
+      this is main
     </div>
   );
 };
