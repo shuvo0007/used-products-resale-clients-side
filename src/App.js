@@ -6,7 +6,6 @@ function App() {
   return (
     <div className="App">
       <RouterProvider router={routes}></RouterProvider>
-      <script src="../path/to/flowbite/dist/flowbite.js"></script>
     </div>
   );
 }
