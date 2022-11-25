@@ -5,7 +5,7 @@ import Header from "../../Header/Header";
 
 const Home = () => {
   return (
-    <div>
+    <div className="mx-32">
       <Header></Header>
       <Outlet></Outlet>
       <Footer></Footer>

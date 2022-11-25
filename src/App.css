@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.nunito-font {
+  font-family: "Nunito Sans", sans-serif;
+}
+.yatra-font {
+  font-family: "Yatra One", cursive;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
