@@ -1,11 +1,15 @@
 import { Button, Label, Radio, TextInput } from "flowbite-react";
 import React, { useContext } from "react";
-import { Navigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useTitle from "../../../../Hooks/useTitle";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
 const Registration = () => {
   useTitle("Registration");
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const handleSubmit = (event) => {
@@ -18,16 +22,18 @@ const Registration = () => {
 
     createUser(email, password)
       .then((result) => {
-        const user = result.user;
         handleUpdateUserProfile(name, userType);
       })
       .catch((e) => console.error(e));
   };
 
   const handleUpdateUserProfile = (name, userType) => {
-    const profile = { displayName: name, userType: userType };
+    const profile = { displayName: name, photoURL: userType };
+    navigate(from, { replace: true });
     updateUserProfile(profile)
-      .then(() => {})
+      .then(() => {
+        console.log(profile.photoURL);
+      })
       .catch((error) => console.error(error));
   };
 
@@ -61,25 +67,25 @@ const Registration = () => {
             <Label htmlFor="password1" value="Your password" />
           </div>
           <TextInput
-            id="password1"
+            id="password"
             type="password"
             placeholder="******"
             required={true}
           />
         </div>
-        <fieldset className="flex flex-col gap-4" id="radio">
+        <fieldset className="flex flex-col gap-4">
           <legend>Choose your User Type</legend>
           <div className="flex items-center gap-2">
             <Radio
-              id="userType"
+              id="Buyer"
               name="userType"
-              value="Buyer"
+              value="buyer"
               defaultChecked={true}
             />
             <Label htmlFor="Buyer">Buyer</Label>
           </div>
           <div className="flex items-center gap-2">
-            <Radio id="userType" name="userType" value="Seller" />
+            <Radio id="Seller" name="userType" value="seller" />
             <Label htmlFor="Seller">Seller</Label>
           </div>
         </fieldset>
