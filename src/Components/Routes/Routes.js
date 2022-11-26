@@ -10,6 +10,7 @@ import Registration from "../Layouts/Outlets/Registration/Registration";
 import Private from "../Layouts/Outlets/Private/Private";
 import NotFound from "../Errors/NotFound";
 import AddProduct from "../Layouts/Outlets/Category/AddProduct/AddProduct";
+import MyProducts from "../Layouts/Outlets/Category/MyProducts/MyProducts";
 
 export const routes = createBrowserRouter([
   {
@@ -45,10 +46,18 @@ export const routes = createBrowserRouter([
         element: <Registration></Registration>,
       },
       {
-        path: "/private/addCategory",
+        path: "/private/addProduct",
         element: (
           <Private>
             <AddProduct></AddProduct>
+          </Private>
+        ),
+      },
+      {
+        path: "/private/myProducts",
+        element: (
+          <Private>
+            <MyProducts></MyProducts>
           </Private>
         ),
       },

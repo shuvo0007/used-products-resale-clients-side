@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import useTitle from "../../../../../Hooks/useTitle";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Label, Radio } from "flowbite-react";
+import { Form, useLocation, useNavigate } from "react-router-dom";
+import { Select } from "flowbite-react";
 
 const AddProduct = () => {
   useTitle("AddCategory");
@@ -16,16 +16,13 @@ const AddProduct = () => {
   const handleAddService = (event) => {
     event.preventDefault();
 
-    fetch(
-      "https://b6a11-service-review-server-side-shuvo0007.vercel.app/category",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(category),
-      }
-    )
+    fetch("http://localhost:5000/laptop", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(category),
+    })
       .then((res) => res.json())
       .then((data) => {
         setTimeout(() => navigate(from, { replace: true }), 3000);
@@ -53,12 +50,13 @@ const AddProduct = () => {
   return (
     <div className="m-28 px-36">
       <form className="flex flex-col" onSubmit={handleAddService}>
+        {/* product name  */}
         <div className="">
           <label
             for="name"
             className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
           >
-            Product Name
+            Product Name/Model
           </label>
           <input
             onBlur={handleInputBlur}
@@ -71,64 +69,184 @@ const AddProduct = () => {
             required
           />
         </div>
+
+        {/* brand name  */}
         <div className="flex flex-col items-start">
           <label
-            for="name"
+            for="brand"
             className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
           >
             Brand Name
           </label>
-          <fieldset className="flex flex-col gap-4">
-            <div className="flex items-center gap-2">
-              <Radio id="asus" name="laptop" value="asus" />
-              <Label htmlFor="Buyer">Asus</Label>
-            </div>
-            <div className="flex items-center gap-2">
-              <Radio id="hp" name="laptop" value="hp" />
-              <Label htmlFor="Buyer">Hp</Label>
-            </div>
-            <div className="flex items-center gap-2">
-              <Radio id="dell" name="laptop" value="dell" />
-              <Label htmlFor="Seller">Dell</Label>
-            </div>
-          </fieldset>
+          <div className="relative w-full lg:max-w-sm">
+            <select
+              id="brand"
+              name="brand"
+              onBlur={handleInputBlur}
+              required
+              className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600 "
+            >
+              <option value="">Please Choose One</option>
+              <option value="asus">Asus</option>
+              <option value="hp">Hp</option>
+              <option value="dell">Dell</option>
+            </select>
+          </div>
         </div>
+
+        {/* original price  */}
         <div>
           <label
-            for="price"
+            for="originalPrice"
             className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
           >
-            Price
+            Original Price
           </label>
           <input
             onBlur={handleInputBlur}
             type="number"
-            name="price"
+            name="originalPrice"
             className="bg-transparent border border-gray-300 text-gray-800 float-left text-sm rounded-lg 
                     focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
             placeholder="123.00"
             required
           />
         </div>
+
+        {/* reasle price  */}
         <div>
           <label
-            for="company"
+            for="resalePrice"
             className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
           >
-            Image URL
+            Resale Price
           </label>
           <input
             onBlur={handleInputBlur}
-            type="text"
-            name="image"
-            id="company"
+            type="number"
+            name="resalePrice"
             className="bg-transparent border border-gray-300 text-gray-800 float-left text-sm rounded-lg 
                     focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-            placeholder="http://.....com/abcd.jpg .png"
+            placeholder="123.00"
             required
           />
         </div>
 
+        {/* condition type  */}
+        <div className="flex flex-col items-start">
+          <label
+            for="brand"
+            className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
+          >
+            Condition Type
+          </label>
+          <div className="relative w-full lg:max-w-sm">
+            <select
+              id="condition"
+              name="condition"
+              onBlur={handleInputBlur}
+              required
+              className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600 "
+            >
+              <option value="">Please Choose One</option>
+              <option value="excellent">Excellent</option>
+              <option value="good">Good</option>
+              <option value="fair">Fair</option>
+            </select>
+          </div>
+        </div>
+
+        {/* phone number  */}
+        <div>
+          <label
+            for="price"
+            className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
+          >
+            Phone Number
+          </label>
+          <input
+            onBlur={handleInputBlur}
+            type="number"
+            name="phoneNumber"
+            className="bg-transparent border border-gray-300 text-gray-800 float-left text-sm rounded-lg 
+                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            placeholder="01*********"
+            required
+          />
+        </div>
+
+        {/* location */}
+        <div className="flex flex-col items-start">
+          <label
+            for="brand"
+            className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
+          >
+            Your Location
+          </label>
+          <div className="relative w-full lg:max-w-sm">
+            <select
+              id="location"
+              name="location"
+              onBlur={handleInputBlur}
+              required
+              className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600 "
+            >
+              <option value="">Please Choose One</option>
+              <option value="Barishal">Barishal</option>
+              <option value="Chattogram">Chattogram</option>
+              <option value="Dhaka">Dhaka</option>
+              <option value="Khulna">Khulna</option>
+              <option value="Mymensingh">Mymensingh</option>
+              <option value="Rajshashi">Rajshashi</option>
+              <option value="Rangpur">Rangpur</option>
+              <option value="Sylhet">Sylhet</option>
+            </select>
+          </div>
+        </div>
+
+        {/* purshase year  */}
+        <div className="flex flex-col items-start">
+          <label
+            for="brand"
+            className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
+          >
+            Year of Purchase
+          </label>
+          <div className="relative w-full lg:max-w-sm">
+            <select
+              id="purchaseYear"
+              name="purchaseYear"
+              onBlur={handleInputBlur}
+              required
+              className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600 "
+            >
+              <option value="">Please Choose One</option>
+              <option value="2001">2001</option>
+              <option value="2002">2002</option>
+              <option value="2003">2003</option>
+              <option value="2004">2004</option>
+              <option value="2005">2005</option>
+              <option value="2006">2006</option>
+              <option value="2007">2007</option>
+              <option value="2008">2008</option>
+              <option value="2009">2009</option>
+              <option value="2010">2010</option>
+              <option value="2012">2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+            </select>
+          </div>
+        </div>
+
+        {/* description  */}
         <div>
           <label
             for="website"
@@ -149,6 +267,7 @@ const AddProduct = () => {
           />
         </div>
 
+        {/* submit */}
         <div>
           <button
             type="submit"
@@ -175,3 +294,5 @@ const AddProduct = () => {
 };
 
 export default AddProduct;
+
+// photo url, years of use, posted time, seller name, seller ID, 

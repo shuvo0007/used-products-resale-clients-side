@@ -52,12 +52,12 @@ const Header = () => {
                 {user.photoURL == "seller" ? (
                   <>
                     <Link
-                      to="/private/addCategory"
+                      to="/private/addProduct"
                       className="text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
                     >
                       Add A product
                     </Link>
-                    <Link className="text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">
+                    <Link to='/private/myProducts' className="text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">
                       My Products
                     </Link>
                   </>
