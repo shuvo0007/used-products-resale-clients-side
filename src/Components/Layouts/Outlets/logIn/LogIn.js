@@ -52,7 +52,7 @@ const LogIn = () => {
       <div className="relative flex flex-col justify-center overflow-hidden py-36">
         <div className="w-full p-12  m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 ring-2 ring-purple-600 lg:max-w-xl">
           <h1 className="text-3xl font-semibold text-center text-purple-700 underline uppercase decoration-wavy">
-            Sign in
+            Log IN 
           </h1>
           <form className="mt-6" onSubmit={handleSubmit}>
             <div className="mb-2">

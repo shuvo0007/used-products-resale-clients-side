@@ -5,6 +5,7 @@ import TopCarousel from "./TopCarousel";
 
 const Main = () => {
   useTitle("Home");
+
   return (
     <div>
       <div className="rounded-xl">

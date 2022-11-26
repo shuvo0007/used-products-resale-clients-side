@@ -60,6 +60,7 @@ export const routes = createBrowserRouter([
             <MyProducts></MyProducts>
           </Private>
         ),
+        loader: () => fetch(`http://localhost:5000/laptop`),
       },
       {
         path: "*",

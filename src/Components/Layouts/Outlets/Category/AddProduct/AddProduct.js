@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import useTitle from "../../../../../Hooks/useTitle";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Form, useLocation, useNavigate } from "react-router-dom";
-import { Select } from "flowbite-react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../../Context/AuthProvider/AuthProvider";
 
 const AddProduct = () => {
-  useTitle("AddCategory");
+  useTitle("AddProduct");
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = "/private/myProducts";
+
+  const { user } = useContext(AuthContext);
 
   const [category, setCategory] = useState({});
 
@@ -26,7 +27,7 @@ const AddProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         setTimeout(() => navigate(from, { replace: true }), 3000);
-        toast.success("Category Added", {
+        toast.success("Laptop Added in List", {
           position: "top-center",
           autoClose: 2000,
           hideProgressBar: false,
@@ -40,21 +41,36 @@ const AddProduct = () => {
   };
 
   const handleInputBlur = (event) => {
+    const date = new Date();
+    const userId = user.uid;
+    const userName = user.displayName;
+    const paid = false;
+    const advertised = false;
     const field = event.target.name;
     const value = event.target.value;
-    const newCategory = { ...category };
+    const newCategory = {
+      ...category,
+      userId,
+      userName,
+      date,
+      paid,
+      advertised,
+    };
     newCategory[field] = value;
     setCategory(newCategory);
   };
 
   return (
-    <div className="m-28 px-36">
+    <div className="m-28 py-10 px-64 border-2 shadow-2xl bg-white rounded-xl ">
+      <h2 className="yatra-font text-5xl my-10  underline">
+        Add Product Details below
+      </h2>
       <form className="flex flex-col" onSubmit={handleAddService}>
         {/* product name  */}
-        <div className="">
+        <div className=" my-2">
           <label
             for="name"
-            className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
+            className="block mb-2 text-2xl font-medium text-gray-800 float-left dark:text-gray-300"
           >
             Product Name/Model
           </label>
@@ -63,18 +79,18 @@ const AddProduct = () => {
             type="text"
             name="name"
             id="name"
-            className="bg-transparent border border-gray-300 text-gray-800 float-left text-sm rounded-lg 
-                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-            placeholder="Title of the Service"
+            className="bg-transparent border  border-yellow-300 text-gray-800 float-left text-xl rounded-lg 
+                    focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 "
+            placeholder="Full Model Name"
             required
           />
         </div>
 
         {/* brand name  */}
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start my-2">
           <label
             for="brand"
-            className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
+            className="block mb-2 text-2xl font-medium text-gray-800 float-left dark:text-gray-300"
           >
             Brand Name
           </label>
@@ -84,9 +100,9 @@ const AddProduct = () => {
               name="brand"
               onBlur={handleInputBlur}
               required
-              className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600 "
+              className="w-full p-2.5 text-gray-500 bg-transparent border rounded-md border-yellow-300 outline-none appearance-none text-xl"
             >
-              <option value="">Please Choose One</option>
+              <option value="">Asus/Hp/Dell</option>
               <option value="asus">Asus</option>
               <option value="hp">Hp</option>
               <option value="dell">Dell</option>
@@ -94,11 +110,31 @@ const AddProduct = () => {
           </div>
         </div>
 
+        {/* laptop photo */}
+        <div className=" my-2">
+          <label
+            for="company"
+            className="block mb-2 text-2xl font-medium text-gray-800 float-left dark:text-gray-300"
+          >
+            Image URL
+          </label>
+          <input
+            onBlur={handleInputBlur}
+            type="text"
+            name="image"
+            id="company"
+            className="bg-transparent border  border-yellow-300 text-gray-800 float-left text-xl rounded-lg 
+                    focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 "
+            placeholder="http://.....com/abcd.jpg .png"
+            required
+          />
+        </div>
+
         {/* original price  */}
-        <div>
+        <div className=" my-2">
           <label
             for="originalPrice"
-            className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
+            className="block mb-2 text-2xl font-medium text-gray-800 float-left dark:text-gray-300"
           >
             Original Price
           </label>
@@ -106,18 +142,18 @@ const AddProduct = () => {
             onBlur={handleInputBlur}
             type="number"
             name="originalPrice"
-            className="bg-transparent border border-gray-300 text-gray-800 float-left text-sm rounded-lg 
-                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-            placeholder="123.00"
+            className="bg-transparent border  border-yellow-300 text-gray-800 float-left text-xl rounded-lg 
+                    focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 "
+            placeholder="123.00 tk"
             required
           />
         </div>
 
         {/* reasle price  */}
-        <div>
+        <div className=" my-2">
           <label
             for="resalePrice"
-            className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
+            className="block mb-2 text-2xl font-medium text-gray-800 float-left dark:text-gray-300"
           >
             Resale Price
           </label>
@@ -125,18 +161,18 @@ const AddProduct = () => {
             onBlur={handleInputBlur}
             type="number"
             name="resalePrice"
-            className="bg-transparent border border-gray-300 text-gray-800 float-left text-sm rounded-lg 
-                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-            placeholder="123.00"
+            className="bg-transparent border  border-yellow-300 text-gray-800 float-left text-xl rounded-lg 
+                    focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 "
+            placeholder="123.00 tk"
             required
           />
         </div>
 
         {/* condition type  */}
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start my-2">
           <label
-            for="brand"
-            className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
+            for="condition"
+            className="block mb-2 text-2xl font-medium text-gray-800 float-left dark:text-gray-300"
           >
             Condition Type
           </label>
@@ -146,7 +182,7 @@ const AddProduct = () => {
               name="condition"
               onBlur={handleInputBlur}
               required
-              className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600 "
+              className="w-full p-2.5 text-gray-500 bg-transparent border rounded-md border-yellow-300 outline-none appearance-none text-xl"
             >
               <option value="">Please Choose One</option>
               <option value="excellent">Excellent</option>
@@ -157,10 +193,10 @@ const AddProduct = () => {
         </div>
 
         {/* phone number  */}
-        <div>
+        <div className=" my-2">
           <label
-            for="price"
-            className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
+            for="number"
+            className="block mb-2 text-2xl font-medium text-gray-800 float-left dark:text-gray-300"
           >
             Phone Number
           </label>
@@ -168,18 +204,18 @@ const AddProduct = () => {
             onBlur={handleInputBlur}
             type="number"
             name="phoneNumber"
-            className="bg-transparent border border-gray-300 text-gray-800 float-left text-sm rounded-lg 
-                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            className="bg-transparent border  border-yellow-300 text-gray-800 float-left text-xl rounded-lg 
+                    focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 "
             placeholder="01*********"
             required
           />
         </div>
 
         {/* location */}
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start my-2">
           <label
             for="brand"
-            className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
+            className="block mb-2 text-2xl font-medium text-gray-800 float-left dark:text-gray-300"
           >
             Your Location
           </label>
@@ -189,7 +225,7 @@ const AddProduct = () => {
               name="location"
               onBlur={handleInputBlur}
               required
-              className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600 "
+              className="w-full p-2.5 text-gray-500 bg-transparent border rounded-md border-yellow-300 outline-none appearance-none text-xl"
             >
               <option value="">Please Choose One</option>
               <option value="Barishal">Barishal</option>
@@ -205,10 +241,10 @@ const AddProduct = () => {
         </div>
 
         {/* purshase year  */}
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start my-2">
           <label
-            for="brand"
-            className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
+            for="year"
+            className="block mb-2 text-2xl font-medium text-gray-800 float-left dark:text-gray-300"
           >
             Year of Purchase
           </label>
@@ -218,7 +254,7 @@ const AddProduct = () => {
               name="purchaseYear"
               onBlur={handleInputBlur}
               required
-              className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600 "
+              className="w-full p-2.5 text-gray-500 bg-transparent border rounded-md border-yellow-300 outline-none appearance-none text-xl"
             >
               <option value="">Please Choose One</option>
               <option value="2001">2001</option>
@@ -247,10 +283,10 @@ const AddProduct = () => {
         </div>
 
         {/* description  */}
-        <div>
+        <div className=" my-2">
           <label
-            for="website"
-            className="block mb-2 text-xl font-medium text-gray-800 float-left dark:text-gray-300"
+            for="details"
+            className="block mb-2 text-2xl font-medium text-gray-800 float-left dark:text-gray-300"
           >
             Description
           </label>
@@ -260,21 +296,30 @@ const AddProduct = () => {
             type="text"
             name="details"
             id="website"
-            className="bg-transparent border border-gray-300 text-gray-800 float-left text-sm rounded-lg 
-                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            className="bg-transparent border  border-yellow-300 text-gray-800 float-left text-xl rounded-lg 
+                    focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 "
             placeholder="Write something about the service"
             required
           />
         </div>
 
         {/* submit */}
-        <div>
+        <div className="mt-10 flex items-center justify-center">
           <button
             type="submit"
-            className="text-gray-800 bg-yellow-300 hover:text-gray-800 hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
+            className="text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
           >
             Submit
           </button>
+          <div>
+            <button
+              className="text-white bg-red-500 hover:text-white hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
+              type="reset"
+              value="submit"
+            >
+              Reset
+            </button>
+          </div>
           <ToastContainer
             position="top-center"
             autoClose={2000}
@@ -295,4 +340,4 @@ const AddProduct = () => {
 
 export default AddProduct;
 
-// photo url, years of use, posted time, seller name, seller ID, 
+// posted time, seller name, seller ID,
