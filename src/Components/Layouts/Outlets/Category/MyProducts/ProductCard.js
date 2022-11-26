@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../../Context/AuthProvider/AuthProvider";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { FcAdvertising } from "react-icons/fc";
 
 const ProductCard = ({ product }) => {
   const { user } = useContext(AuthContext);
-  const totalYearUse = 2022 - product.purchaseYear;
   return (
-    <div>
+    <div className="bg-white">
       {product.userId == user.uid ? (
         <div className="flex justify-between border-2 rounded-xl p-5 items-center m-2">
           <div
@@ -49,8 +50,8 @@ const ProductCard = ({ product }) => {
                     </>
                   ) : (
                     <>
-                      <button className="ml-10 text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">
-                        Post Product
+                      <button className="ml-10 text-gray-800 bg-gray-200 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center dark:focus:ring-yellow-900 flex">
+                        <span className="mr-3">Advertise</span> <FcAdvertising size={30}/>
                       </button>
                     </>
                   )}
@@ -58,8 +59,8 @@ const ProductCard = ({ product }) => {
               </>
             )}
           </p>
-          <button className="text-white bg-red-500 hover:text-white hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">
-            Delete
+          <button className="text-white bg-red-500 hover:text-white hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-lg px-5 py-2.5 text-center dark:focus:ring-yellow-900">
+            <RiDeleteBin6Line size={30}/>
           </button>
         </div>
       ) : (

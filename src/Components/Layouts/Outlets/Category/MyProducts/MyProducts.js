@@ -7,7 +7,7 @@ const MyProducts = () => {
   useTitle("My Products");
   const allProducts = useLoaderData();
   return (
-    <div className="my-28 py-10 px-10 border-2  shadow-2xl bg-white rounded-xl text-xl">
+    <div className="my-28 py-10 px-10 border-2  shadow-2xl bg-gray-200 rounded-xl text-xl">
       <h2 className="yatra-font text-5xl my-10 underline">
         List of all your Products
       </h2>
