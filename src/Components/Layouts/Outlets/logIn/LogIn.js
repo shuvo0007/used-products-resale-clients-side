@@ -96,19 +96,19 @@ const LogIn = () => {
               </button>
               <div className="text-red-600">{error}</div>
             </div>
-            <div class="flex items-center justify-center space-x-2 my-5">
-              <span class="h-px w-1/3 bg-gray-500"></span>
-              <span class="text-gray-700 font-normal">or</span>
-              <span class="h-px w-1/3 bg-gray-500"></span>
+            <div className="flex items-center justify-center space-x-2 my-5">
+              <span className="h-px w-1/3 bg-gray-500"></span>
+              <span className="text-gray-700 font-normal">or</span>
+              <span className="h-px w-1/3 bg-gray-500"></span>
             </div>
             <div className="w-full">
               <button
                 onClick={handleGoogleSignIn}
                 type="button"
-                class="w-full justify-center text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+                className="w-full justify-center text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
               >
                 <svg
-                  class="mr-2 -ml-1 w-4 h-4"
+                  className="mr-2 -ml-1 w-4 h-4"
                   aria-hidden="true"
                   focusable="false"
                   data-prefix="fab"

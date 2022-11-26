@@ -19,9 +19,9 @@ const Category = () => {
             />
             <Link
               to="/asus"
-              class="my-5 text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
+              className="my-5 text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
             >
-              <span class="flex px-5 py-2.5 ">
+              <span className="flex px-5 py-2.5 ">
                 See More <HiOutlineArrowRight className="ml-2 h-7 w-7" />
               </span>
             </Link>
@@ -38,9 +38,9 @@ const Category = () => {
 
             <Link
               to="/hp"
-              class="my-5 text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
+              className="my-5 text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
             >
-              <span class="flex px-5 py-2.5">
+              <span className="flex px-5 py-2.5">
                 See More <HiOutlineArrowRight className="ml-2 h-7 w-7" />
               </span>
             </Link>
@@ -56,9 +56,9 @@ const Category = () => {
             />
             <Link
               to="/dell"
-              class="my-5 text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
+              className="my-5 text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
             >
-              <span class="flex px-5 py-2.5">
+              <span className="flex px-5 py-2.5">
                 See More <HiOutlineArrowRight className="ml-2 h-7 w-7" />
               </span>
             </Link>

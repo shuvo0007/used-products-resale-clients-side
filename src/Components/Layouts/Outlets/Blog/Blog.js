@@ -5,17 +5,17 @@ const Blogs = () => {
   useTitle("Blog");
   return (
     <div>
-      <section class="bg-transparent dark:bg-gray-900">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-          <h2 class="mb-8 text-4xl tracking-tight font-extrabold text-black dark:text-white">
+      <section className="bg-transparent dark:bg-gray-900">
+        <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+          <h2 className="mb-8 text-4xl tracking-tight font-extrabold text-black dark:text-white">
             Questions
           </h2>
-          <div class="grid pt-8 text-left border-t border-gray-200 md:gap-16 dark:border-gray-700 md:grid-cols-1">
+          <div className="grid pt-8 text-left border-t border-gray-200 md:gap-16 dark:border-gray-700 md:grid-cols-1">
             <div>
-              <div class="mb-10">
-                <h3 class="flex items-center mb-4 text-2xl font-medium text-black dark:text-white">
+              <div className="mb-10">
+                <h3 className="flex items-center mb-4 text-2xl font-medium text-black dark:text-white">
                   <svg
-                    class="flex-shrink-0 mr-2 w-5 h-5 text-gray-400 dark:text-gray-400"
+                    className="flex-shrink-0 mr-2 w-5 h-5 text-gray-400 dark:text-gray-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ const Blogs = () => {
                   What are the different ways to manage a state in a React
                   application?
                 </h3>
-                <p class="text-gray-600 text-xl dark:text-gray-400 text-justify">
+                <p className="text-gray-600 text-xl dark:text-gray-400 text-justify">
                   There are four main types of state you need to properly manage
                   in your React apps: <br />
                   1. Local state, <br />
@@ -38,10 +38,10 @@ const Blogs = () => {
                   4. URL state
                 </p>
               </div>
-              <div class="mb-10">
-                <h3 class="flex items-center mb-4 text-2xl font-medium text-black dark:text-white">
+              <div className="mb-10">
+                <h3 className="flex items-center mb-4 text-2xl font-medium text-black dark:text-white">
                   <svg
-                    class="flex-shrink-0 mr-2 w-5 h-5 text-gray-400 dark:text-gray-400"
+                    className="flex-shrink-0 mr-2 w-5 h-5 text-gray-400 dark:text-gray-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +54,7 @@ const Blogs = () => {
                   </svg>
                   How does prototypical inheritance work?
                 </h3>
-                <p class="text-gray-600 text-xl dark:text-gray-400 text-justify">
+                <p className="text-gray-600 text-xl dark:text-gray-400 text-justify">
                   The Prototypal Inheritance is a feature in javascript used to
                   add methods and properties in objects. It is a method by which
                   an object can inherit the properties and methods of another
@@ -62,10 +62,10 @@ const Blogs = () => {
                   of an object, we use Object. getPrototypeOf and Object.
                 </p>
               </div>
-              <div class="mb-10">
-                <h3 class="flex items-center mb-4 text-2xl font-medium text-black dark:text-white">
+              <div className="mb-10">
+                <h3 className="flex items-center mb-4 text-2xl font-medium text-black dark:text-white">
                   <svg
-                    class="flex-shrink-0 mr-2 w-5 h-5 text-gray-400 dark:text-gray-400"
+                    className="flex-shrink-0 mr-2 w-5 h-5 text-gray-400 dark:text-gray-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@ const Blogs = () => {
                   </svg>
                   What is a unit test? Why should we write unit tests?
                 </h3>
-                <p class="text-gray-600 text-xl dark:text-gray-400 text-justify">
+                <p className="text-gray-600 text-xl dark:text-gray-400 text-justify">
                   Unit Testing is a type of software testing where individual
                   units or components of a software are tested. <br /> They
                   enable you to catch bugs early in the development process.
@@ -89,10 +89,10 @@ const Blogs = () => {
                   complex.
                 </p>
               </div>
-              <div class="mb-10">
-                <h3 class="flex items-center mb-4 text-2xl font-medium text-black dark:text-white">
+              <div className="mb-10">
+                <h3 className="flex items-center mb-4 text-2xl font-medium text-black dark:text-white">
                   <svg
-                    class="flex-shrink-0 mr-2 w-5 h-5 text-gray-400 dark:text-gray-400"
+                    className="flex-shrink-0 mr-2 w-5 h-5 text-gray-400 dark:text-gray-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +105,7 @@ const Blogs = () => {
                   </svg>
                   React vs. Angular vs. Vue?
                 </h3>
-                <p class="text-gray-600 text-xl dark:text-gray-400 text-justify">
+                <p className="text-gray-600 text-xl dark:text-gray-400 text-justify">
                   Angular: <br /> Angular has a steep learning curve,
                   considering it is a complete solution, and mastering Angular
                   requires you to learn associated concepts like TypeScript and
