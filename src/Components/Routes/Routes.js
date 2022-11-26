@@ -20,6 +20,7 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Main></Main>,
+        loader: () => fetch(`http://localhost:5000/laptop`),
       },
       {
         path: "/blog",
@@ -28,14 +29,17 @@ export const routes = createBrowserRouter([
       {
         path: "/asus",
         element: <Asus></Asus>,
+        loader: () => fetch(`http://localhost:5000/laptop`),
       },
       {
         path: "/hp",
         element: <Hp></Hp>,
+        loader: () => fetch(`http://localhost:5000/laptop`),
       },
       {
         path: "/dell",
         element: <Dell></Dell>,
+        loader: () => fetch(`http://localhost:5000/laptop`),
       },
       {
         path: "/login",
