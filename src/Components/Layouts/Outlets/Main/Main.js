@@ -18,9 +18,13 @@ const Main = () => {
         <Category></Category>
       </div>
       {allProducts.map((product) => {
-        return product.advertised ? (count = count + 1) : <></>;
+        return product.advertised ? (
+          <div className="hidden">{(count = count + 1)}</div>
+        ) : (
+          <></>
+        );
       })}
-      {count > 0 && (
+      {count > 0 ? (
         <div className="my-28 py-10 px-10 border-2  shadow-2xl bg-gray-200 rounded-xl text-xl">
           <h2 className="yatra-font text-5xl my-10 underline">
             List of Advertised laptop
@@ -36,6 +40,12 @@ const Main = () => {
                 ></AdvertisedProduct>
               ))}
           </div>
+        </div>
+      ) : (
+        <div className="my-28 py-10 px-10 border-2  shadow-2xl bg-gray-200 rounded-xl text-xl">
+          <p className="yatra-font text-4xl my-10">
+            No One Advertized any product
+          </p>
         </div>
       )}
     </div>

@@ -10,7 +10,7 @@ const Category = () => {
       </div>
       <div className="flex w-full justify-evenly">
         <div className="py-4 bg-white rounded-2xl px-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300">
-          <p className="nunito-font text-3xl m-5">ASUS</p>
+          <p className=" text-3xl m-5">ASUS</p>
           <div className="max-w-sm flex flex-col justify-center items-center">
             <img
               className="rounded-xl h-64"
@@ -28,7 +28,7 @@ const Category = () => {
           </div>
         </div>
         <div className="py-4 bg-white rounded-2xl px-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300">
-          <p className="nunito-font text-3xl m-5">HP</p>
+          <p className=" text-3xl m-5">HP</p>
           <div className="max-w-sm flex flex-col justify-center items-center">
             <img
               className="rounded-xl h-64"
@@ -47,7 +47,7 @@ const Category = () => {
           </div>
         </div>
         <div className="py-4 bg-white rounded-2xl px-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300">
-          <p className="nunito-font text-3xl m-5">DELL</p>
+          <p className=" text-3xl m-5">DELL</p>
           <div className="max-w-sm flex flex-col justify-center items-center">
             <img
               className="rounded-xl h-64"

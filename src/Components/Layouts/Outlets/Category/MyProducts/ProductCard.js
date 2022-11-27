@@ -1,10 +1,35 @@
+/* eslint-disable eqeqeq */
 import React, { useContext } from "react";
 import { AuthContext } from "../../../../Context/AuthProvider/AuthProvider";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FcAdvertising } from "react-icons/fc";
+import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 const ProductCard = ({ product }) => {
   const { user } = useContext(AuthContext);
+
+  const handleDelete = (_id) => {
+    fetch(`http://localhost:5000/laptop/${product._id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setTimeout(() => window.location.reload(), 3000);
+        toast.success("Your Product is Deleted", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+
+      });
+  };
+
   return (
     <div className="">
       {product.userId == user.uid ? (
@@ -34,7 +59,7 @@ const ProductCard = ({ product }) => {
           </div>
           <p className="text-left">Brand: {product.brand}</p>
           <p className="text-left">Resale Price: {product.resalePrice}</p>
-          <p className=" flex items-center text-left">
+          <div className=" flex items-center text-left">
             Availablity
             {product.paid ? (
               <>
@@ -59,23 +84,25 @@ const ProductCard = ({ product }) => {
                 </div>
               </>
             )}
-          </p>
-          <div className="w-48 flex items-center justify-between">
-            <div>
-              {product.paid ? (
-                <button className="text-white bg-red-500 hover:text-white hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-xl text-lg px-5 py-2.5 text-center dark:focus:ring-yellow-900">
-                  UnSold
-                </button>
-              ) : (
-                <button className="text-white bg-red-500 hover:text-white hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-xl text-lg px-5 py-2.5 text-center dark:focus:ring-yellow-900">
-                  Sold
-                </button>
-              )}
-            </div>
-            <button className="text-white bg-red-500 hover:text-white hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-xl text-lg px-5 py-2.5 text-center dark:focus:ring-yellow-900">
-              <RiDeleteBin6Line size={30} />
-            </button>
           </div>
+          <Link
+            onClick={() => handleDelete(product._id)}
+            className="text-white bg-red-500 hover:text-white hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-xl text-lg px-5 py-2.5 text-center dark:focus:ring-yellow-900"
+          >
+            <RiDeleteBin6Line size={30} />
+            <ToastContainer
+              position="top-center"
+              autoClose={2000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
+          </Link>
         </div>
       ) : (
         <></>
