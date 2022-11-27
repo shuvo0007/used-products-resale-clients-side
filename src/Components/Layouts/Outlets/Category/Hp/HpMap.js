@@ -2,7 +2,6 @@ import React from "react";
 
 const HpMap = ({ product }) => {
   const yearOfUse = 2022 - product.purchaseYear;
-
   return (
     <div
       className={`rounded-xl bg-white p-5 mt-16 ${

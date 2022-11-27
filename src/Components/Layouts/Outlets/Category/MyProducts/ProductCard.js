@@ -34,6 +34,7 @@ const ProductCard = ({ product }) => {
     <div className="">
       {product.userId == user.uid ? (
         <div className="flex justify-between bg-white rounded-xl p-5 items-center m-2">
+          
           <div
             className="flex items-center
             "
