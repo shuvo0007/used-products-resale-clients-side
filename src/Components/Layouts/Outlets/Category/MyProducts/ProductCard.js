@@ -60,9 +60,22 @@ const ProductCard = ({ product }) => {
               </>
             )}
           </p>
-          <button className="text-white bg-red-500 hover:text-white hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-xl text-lg px-5 py-2.5 text-center dark:focus:ring-yellow-900">
-            <RiDeleteBin6Line size={30} />
-          </button>
+          <div className="w-48 flex items-center justify-between">
+            <div>
+              {product.paid ? (
+                <button className="text-white bg-red-500 hover:text-white hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-xl text-lg px-5 py-2.5 text-center dark:focus:ring-yellow-900">
+                  UnSold
+                </button>
+              ) : (
+                <button className="text-white bg-red-500 hover:text-white hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-xl text-lg px-5 py-2.5 text-center dark:focus:ring-yellow-900">
+                  Sold
+                </button>
+              )}
+            </div>
+            <button className="text-white bg-red-500 hover:text-white hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-xl text-lg px-5 py-2.5 text-center dark:focus:ring-yellow-900">
+              <RiDeleteBin6Line size={30} />
+            </button>
+          </div>
         </div>
       ) : (
         <></>
