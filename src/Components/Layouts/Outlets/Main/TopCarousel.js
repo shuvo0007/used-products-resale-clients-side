@@ -1,6 +1,5 @@
 import { Carousel } from "flowbite-react";
 import React from "react";
-import "./Main.css";
 
 const TopCarousel = () => {
   return (

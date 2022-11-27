@@ -9,6 +9,10 @@
   font-family: "Yatra One", cursive;
 }
 
+.custom-h {
+  height: 65vh;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
