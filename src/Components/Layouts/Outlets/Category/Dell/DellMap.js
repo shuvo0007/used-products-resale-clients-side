@@ -16,6 +16,11 @@ const DellMap = ({ product }) => {
                   className="rounded-xl h-96 w-full"
                   src={product.image}
                   alt="laptop"
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src =
+                      "https://www.bigpharmacy.com.my/scripts/timthumb.php?src=https://www.bigpharmacy.com.my//site_media/img/4101d83b54c7b8d58639aba6fa6622e6.jpg&w=70&zc=1";
+                  }}
                 />
                 <div className="text-2xl my-5 text-justify">
                   <h2 className="text-2xl  tracking-tight text-gray-900 dark:text-white">

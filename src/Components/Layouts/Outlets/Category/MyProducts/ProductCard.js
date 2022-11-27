@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null;
                   currentTarget.src =
-                    "https://p.kindpng.com/picc/s/9-91068_laptop-png-transparent-png.png";
+                    "https://www.bigpharmacy.com.my/scripts/timthumb.php?src=https://www.bigpharmacy.com.my//site_media/img/4101d83b54c7b8d58639aba6fa6622e6.jpg&w=70&zc=1";
                 }}
                 alt="laptop"
               />
