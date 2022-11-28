@@ -15,6 +15,7 @@ const ProductCard = ({ product }) => {
       headers: {
         "content-type": "application/json",
       },
+      body: JSON.stringify({ id: id }),
     })
       .then((res) => res.json())
       .then((data) => {

@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
 const AdvertisedProduct = ({ product }) => {
   const yearOfUse = 2022 - product.purchaseYear;
+  const { user } = useContext(AuthContext);
+  const [modalUser, setModalUser] = useState();
 
   const [showModal, setShowModal] = useState(false);
   return (
