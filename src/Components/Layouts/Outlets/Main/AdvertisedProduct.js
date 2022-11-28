@@ -1,13 +1,59 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
 const AdvertisedProduct = ({ product }) => {
   const yearOfUse = 2022 - product.purchaseYear;
-  const { user } = useContext(AuthContext);
-  const [modalUser, setModalUser] = useState();
 
+  const { user } = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+  const from = "/private/myOrders";
+
+  const handleBooking = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const productName = form.productName.value;
+    const productPrice = form.productPrice.value;
+    const buyerName = form.buyerName.value;
+    const buyerEmail = form.buyerEmail.value;
+    const buyerNumber = form.buyerNumber.value;
+    const location = form.location.value;
+
+    const booking = {
+      productName,
+      productPrice,
+      buyerName,
+      buyerEmail,
+      buyerNumber,
+      location,
+    };
+
+    fetch("http://localhost:5000/selected-laptop", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setTimeout(() => navigate(from, { replace: true }), 3000);
+        toast.success("Laptop Booked", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        setShowModal(false);
+      });
+  };
+
   return (
     <div
       className={`rounded-xl bg-white p-5 mt-16 ${
@@ -57,7 +103,9 @@ const AdvertisedProduct = ({ product }) => {
               </div>
               <Link>
                 <button
-                  onClick={() => setShowModal(true)}
+                  onClick={() => {
+                    setShowModal(true);
+                  }}
                   className="text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900 w-full"
                 >
                   Book Now
@@ -65,58 +113,120 @@ const AdvertisedProduct = ({ product }) => {
               </Link>
               {showModal ? (
                 <>
-                  <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-                    <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                  <div className=" justify-center items-center fixed inset-0  z-50 outline-none focus:outline-none ">
+                    <div className="relative w-auto my-6 mx-auto max-w-3xl ">
                       {/*content*/}
-                      <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                        {/*header*/}
-                        <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                          <h3 className="text-3xl font-semibold">
-                            Modal Title
-                          </h3>
-                          <button
-                            className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                            onClick={() => setShowModal(false)}
-                          >
-                            <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                              ×
-                            </span>
-                          </button>
-                        </div>
-                        {/*body*/}
-                        <div className="relative p-6 flex-auto">
-                          <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                            I always felt like I could do anything. That’s the
-                            main thing people are controlled by! Thoughts- their
-                            perception of themselves! They're slowed down by
-                            their perception of themselves. If you're taught you
-                            can’t do anything, you won’t do anything. I was
-                            taught I could do everything.
-                          </p>
-                        </div>
-                        {/*footer*/}
-                        <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
-                          <button
-                            className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                            type="button"
-                            onClick={() => setShowModal(false)}
-                          >
-                            Close
-                          </button>
-                          <button
-                            className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                            type="button"
-                            onClick={() => setShowModal(false)}
-                          >
-                            Save Changes
-                          </button>
-                        </div>
+                      <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full  outline-none focus:outline-none bg-gray-300">
+                        <form onSubmit={handleBooking}>
+                          {/*header*/}
+                          <div className="flex items-start justify-between p-5 border-b border-solid  border-slate-200 rounded-t">
+                            <h3 className="text-4xl font-semibold">
+                              Booking Details:
+                            </h3>
+                          </div>
+                          {/*body*/}
+                          <div className=" p-6 flex flex-col">
+                            <label className="underline decoration-wavy text-yellow-800">
+                              Product Name:
+                            </label>
+                            <input
+                              name="productName"
+                              id="productName"
+                              defaultValue={product.name}
+                              type="text"
+                              disabled
+                              className="bg-transparent border-0 text-2xl "
+                            />
+                            <label className="underline decoration-wavy text-yellow-800">
+                              Product Price:
+                            </label>
+                            <input
+                              name="productPrice"
+                              id="productPrice"
+                              defaultValue={product.resalePrice}
+                              type="text"
+                              disabled
+                              className="bg-transparent border-0 text-2xl "
+                            />
+                            <label className="underline decoration-wavy text-yellow-800">
+                              Your Name:
+                            </label>
+                            <input
+                              name="buyerName"
+                              id="buyerName"
+                              defaultValue={user?.displayName}
+                              type="text"
+                              disabled
+                              className="bg-transparent border-0 text-2xl"
+                            />
+                            <label className="underline decoration-wavy text-yellow-800">
+                              Your Email:
+                            </label>
+                            <input
+                              name="buyerEmail"
+                              id="buyerEmail"
+                              defaultValue={user?.email}
+                              type="text"
+                              disabled
+                              className="bg-transparent border-0 text-2xl "
+                            />
+                            <label className="underline decoration-wavy text-yellow-800">
+                              Enter Your Number:
+                            </label>
+                            <input
+                              required
+                              name="buyerNumber"
+                              id="buyerNumber"
+                              placeholder="Phone Number"
+                              type="number"
+                              className=" text-2xl "
+                            />
+                            <label className="underline decoration-wavy text-yellow-800">
+                              Enter Your Location:
+                            </label>
+                            <input
+                              required
+                              name="location"
+                              id="location"
+                              placeholder="Meeting Location"
+                              type="text"
+                              className=" text-2xl "
+                            />
+                          </div>
+                          {/*footer*/}
+                          <div className="flex items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
+                            <button
+                              className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              type="button"
+                              onClick={() => setShowModal(false)}
+                            >
+                              Close
+                            </button>
+                            <input
+                              type="submit"
+                              value="Book Now"
+                              className="bg-yellow-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                            />
+                          </div>
+                        </form>
                       </div>
                     </div>
                   </div>
                   <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
                 </>
               ) : null}
+              <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+              />
             </div>
           </div>
         </>
