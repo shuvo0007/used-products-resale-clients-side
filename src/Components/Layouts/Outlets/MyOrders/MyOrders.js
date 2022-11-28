@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
+import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
+  const selectedLaptop = useLoaderData();
   return (
     <div>
       {user.photoURL != "admin" &&

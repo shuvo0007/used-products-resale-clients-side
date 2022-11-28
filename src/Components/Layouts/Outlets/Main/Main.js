@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import useTitle from "../../../../Hooks/useTitle";
 
@@ -10,6 +10,7 @@ const Main = () => {
   useTitle("Home");
   const allProducts = useLoaderData();
 
+  
 
   let count = 0;
   return (
