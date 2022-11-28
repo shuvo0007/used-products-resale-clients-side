@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 const AdvertisedProduct = ({ product }) => {
   const yearOfUse = 2022 - product.purchaseYear;
@@ -50,9 +50,11 @@ const AdvertisedProduct = ({ product }) => {
                   {product.userName}
                 </p>
               </div>
-              <button className="text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900 w-full">
-                Book Now
-              </button>
+              <Link to={"/private/myOrders"}>
+                <button className="text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900 w-full">
+                  Book Now
+                </button>
+              </Link>
             </div>
           </div>
         </>

@@ -9,6 +9,7 @@ import UnAdvertisedProduct from "./UnAdvertisedProduct";
 const MyProducts = () => {
   useTitle("My Products");
   const { user } = useContext(AuthContext);
+  console.log(user.photoURL);
 
   const allProducts = useLoaderData();
   let count = 0;
@@ -49,16 +50,21 @@ const MyProducts = () => {
 
           {/* -----------------------UnAdvertised Product --------------------------------*/}
           <UnAdvertisedProduct
+            key={allProducts._id}
             unAdvertisedCount={unAdvertisedCount}
           ></UnAdvertisedProduct>
 
           {/* -----------------------Advertised Product -----------------------*/}
           <AdvertisedProduct
+            key={allProducts._id}
             advertisedCount={advertisedCount}
           ></AdvertisedProduct>
 
           {/* -----------------------Sold Product -----------------------*/}
-          <SoldProduct soldCount={soldCount}></SoldProduct>
+          <SoldProduct
+            key={allProducts._id}
+            soldCount={soldCount}
+          ></SoldProduct>
         </div>
       ) : (
         <div className="my-28 py-10 px-10 border-2  shadow-2xl bg-gray-200 rounded-xl text-xl">

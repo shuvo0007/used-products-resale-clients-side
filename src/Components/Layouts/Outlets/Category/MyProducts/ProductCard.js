@@ -9,6 +9,30 @@ import { toast, ToastContainer } from "react-toastify";
 const ProductCard = ({ product }) => {
   const { user } = useContext(AuthContext);
 
+  const handleAdvertise = (id) => {
+    fetch(`http://localhost:5000/laptop/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        setTimeout(() => window.location.reload(), 3000);
+        toast.success("Your Product is Advertised", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      });
+  };
+
   const handleDelete = (_id) => {
     fetch(`http://localhost:5000/laptop/${product._id}`, {
       method: "DELETE",
@@ -26,7 +50,6 @@ const ProductCard = ({ product }) => {
           progress: undefined,
           theme: "dark",
         });
-
       });
   };
 
@@ -34,7 +57,6 @@ const ProductCard = ({ product }) => {
     <div className="">
       {product.userId == user.uid ? (
         <div className="flex justify-between bg-white rounded-xl p-5 items-center m-2">
-          
           <div
             className="flex items-center
             "
@@ -76,7 +98,10 @@ const ProductCard = ({ product }) => {
                     </>
                   ) : (
                     <>
-                      <button className="ml-10 text-gray-800 bg-gray-200 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-xl text-lg px-5 py-2.5 text-center dark:focus:ring-yellow-900 flex">
+                      <button
+                        onClick={() => handleAdvertise(product._id)}
+                        className="ml-10 text-gray-800 bg-gray-200 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-xl text-lg px-5 py-2.5 text-center dark:focus:ring-yellow-900 flex"
+                      >
                         <span className="mr-3">Advertise</span>{" "}
                         <FcAdvertising size={30} />
                       </button>

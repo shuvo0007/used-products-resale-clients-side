@@ -11,6 +11,7 @@ import Private from "../Layouts/Outlets/Private/Private";
 import NotFound from "../Errors/NotFound";
 import AddProduct from "../Layouts/Outlets/Category/AddProduct/AddProduct";
 import MyProducts from "../Layouts/Outlets/Category/MyProducts/MyProducts";
+import MyOrders from "../Layouts/Outlets/MyOrders/MyOrders";
 
 export const routes = createBrowserRouter([
   {
@@ -54,6 +55,14 @@ export const routes = createBrowserRouter([
         element: (
           <Private>
             <AddProduct></AddProduct>
+          </Private>
+        ),
+      },
+      {
+        path: "/private/myOrders",
+        element: (
+          <Private>
+            <MyOrders></MyOrders>
           </Private>
         ),
       },

@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import useTitle from "../../../../Hooks/useTitle";
+
 import AdvertisedProduct from "./AdvertisedProduct";
 import Category from "./Category";
 import TopCarousel from "./TopCarousel";
@@ -8,6 +9,8 @@ import TopCarousel from "./TopCarousel";
 const Main = () => {
   useTitle("Home");
   const allProducts = useLoaderData();
+
+
   let count = 0;
   return (
     <div>
