@@ -2,7 +2,9 @@ import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import useTitle from "../../../../../Hooks/useTitle";
 import { AuthContext } from "../../../../Context/AuthProvider/AuthProvider";
-import ProductCard from "./ProductCard";
+import AdvertisedProduct from "./AdvertisedProduct";
+import SoldProduct from "./SoldProduct";
+import UnAdvertisedProduct from "./UnAdvertisedProduct";
 
 const MyProducts = () => {
   useTitle("My Products");
@@ -44,78 +46,19 @@ const MyProducts = () => {
           <h2 className="yatra-font text-5xl my-10 underline">
             List of all your Products
           </h2>
-          {/* UnAdvertised Product */}
-          {unAdvertisedCount == 0 ? (
-            <div className="hidden"></div>
-          ) : (
-            <div className="my-10">
-              <h2 className="ml-5 text-left text-4xl">UnAdvertised Product:</h2>
-              <div>
-                {allProducts.map((product) => {
-                  return product.advertised ? (
-                    <></>
-                  ) : (
-                    <div>
-                      {product.paid ? (
-                        <></>
-                      ) : (
-                        <ProductCard
-                          key={product._id}
-                          product={product}
-                        ></ProductCard>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-          {/* Advertised Product */}
-          {advertisedCount == 0 ? (
-            <div className="hidden"></div>
-          ) : (
-            <div className="my-10">
-              <h2 className="ml-5 text-left text-4xl">Advertised Product:</h2>
-              <div>
-                {allProducts.map((product) => {
-                  return product.advertised ? (
-                    <div>
-                      {product.paid ? (
-                        <></>
-                      ) : (
-                        <ProductCard
-                          key={product._id}
-                          product={product}
-                        ></ProductCard>
-                      )}
-                    </div>
-                  ) : (
-                    <></>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-          {/* Sold Product */}
-          {soldCount == 0 ? (
-            <div className="hidden"></div>
-          ) : (
-            <div className="my-10">
-              <h2 className="ml-5 text-left text-4xl">Sold Product:</h2>
-              <div>
-                {allProducts.map((product) => {
-                  return product.paid ? (
-                    <ProductCard
-                      key={product._id}
-                      product={product}
-                    ></ProductCard>
-                  ) : (
-                    <></>
-                  );
-                })}
-              </div>
-            </div>
-          )}
+
+          {/* -----------------------UnAdvertised Product --------------------------------*/}
+          <UnAdvertisedProduct
+            unAdvertisedCount={unAdvertisedCount}
+          ></UnAdvertisedProduct>
+
+          {/* -----------------------Advertised Product -----------------------*/}
+          <AdvertisedProduct
+            advertisedCount={advertisedCount}
+          ></AdvertisedProduct>
+
+          {/* -----------------------Sold Product -----------------------*/}
+          <SoldProduct soldCount={soldCount}></SoldProduct>
         </div>
       ) : (
         <div className="my-28 py-10 px-10 border-2  shadow-2xl bg-gray-200 rounded-xl text-xl">
