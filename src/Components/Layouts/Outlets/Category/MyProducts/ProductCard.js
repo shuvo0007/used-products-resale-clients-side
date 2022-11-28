@@ -10,13 +10,16 @@ const ProductCard = ({ product }) => {
   const { user } = useContext(AuthContext);
 
   const handleAdvertise = (id) => {
-    fetch(`http://localhost:5000/laptop/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ id: id }),
-    })
+    fetch(
+      `https://b612-used-products-resale-server-side-shuvo0007.vercel.app/laptop/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ id: id }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -35,9 +38,12 @@ const ProductCard = ({ product }) => {
   };
 
   const handleDelete = (_id) => {
-    fetch(`http://localhost:5000/laptop/${product._id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://b612-used-products-resale-server-side-shuvo0007.vercel.app/laptop/${product._id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setTimeout(() => window.location.reload(), 3000);

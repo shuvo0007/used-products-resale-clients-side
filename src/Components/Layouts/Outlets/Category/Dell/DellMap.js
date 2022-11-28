@@ -35,13 +35,16 @@ const DellMap = ({ product }) => {
       location,
     };
 
-    fetch("http://localhost:5000/selected-laptop", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(booking),
-    })
+    fetch(
+      "https://b612-used-products-resale-server-side-shuvo0007.vercel.app/selected-laptop",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(booking),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setTimeout(() => navigate(from, { replace: true }), 3000);

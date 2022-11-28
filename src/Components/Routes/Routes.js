@@ -21,7 +21,10 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Main></Main>,
-        loader: () => fetch(`http://localhost:5000/laptop`),
+        loader: () =>
+          fetch(
+            `https://b612-used-products-resale-server-side-shuvo0007.vercel.app/laptop`
+          ),
       },
       {
         path: "/blog",
@@ -30,17 +33,26 @@ export const routes = createBrowserRouter([
       {
         path: "/asus",
         element: <Asus></Asus>,
-        loader: () => fetch(`http://localhost:5000/laptop`),
+        loader: () =>
+          fetch(
+            `https://b612-used-products-resale-server-side-shuvo0007.vercel.app/laptop`
+          ),
       },
       {
         path: "/hp",
         element: <Hp></Hp>,
-        loader: () => fetch(`http://localhost:5000/laptop`),
+        loader: () =>
+          fetch(
+            `https://b612-used-products-resale-server-side-shuvo0007.vercel.app/laptop`
+          ),
       },
       {
         path: "/dell",
         element: <Dell></Dell>,
-        loader: () => fetch(`http://localhost:5000/laptop`),
+        loader: () =>
+          fetch(
+            `https://b612-used-products-resale-server-side-shuvo0007.vercel.app/laptop`
+          ),
       },
       {
         path: "/login",
@@ -65,7 +77,10 @@ export const routes = createBrowserRouter([
             <MyOrders></MyOrders>
           </Private>
         ),
-        loader: () => fetch(`http://localhost:5000/selected-laptop`),
+        loader: () =>
+          fetch(
+            `https://b612-used-products-resale-server-side-shuvo0007.vercel.app/selected-laptop`
+          ),
       },
       {
         path: "/private/myProducts",
@@ -74,7 +89,10 @@ export const routes = createBrowserRouter([
             <MyProducts></MyProducts>
           </Private>
         ),
-        loader: () => fetch(`http://localhost:5000/laptop`),
+        loader: () =>
+          fetch(
+            `https://b612-used-products-resale-server-side-shuvo0007.vercel.app/laptop`
+          ),
       },
       {
         path: "*",

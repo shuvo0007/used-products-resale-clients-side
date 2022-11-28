@@ -17,13 +17,16 @@ const AddProduct = () => {
   const handleAddService = (event) => {
     event.preventDefault();
 
-    fetch("http://localhost:5000/laptop", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(category),
-    })
+    fetch(
+      "https://b612-used-products-resale-server-side-shuvo0007.vercel.app/laptop",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(category),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setTimeout(() => navigate(from, { replace: true }), 3000);

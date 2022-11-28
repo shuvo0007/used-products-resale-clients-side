@@ -25,7 +25,7 @@ const MyOrders = () => {
                 .map((bookedLaptop) => {
                   return user?.uid == bookedLaptop.buyerId ? (
                     <>
-                      <div className="max-w-sm text-left">
+                      <div className="max-w-sm text-left rounded-xl bg-white p-5 mt-16">
                         <img
                           className="rounded-xl h-96 w-full"
                           src={bookedLaptop.productImage}
@@ -47,10 +47,7 @@ const MyOrders = () => {
                           </p>
                         </div>
                         <Link>
-                          <button
-                           
-                            className="text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900 w-full"
-                          >
+                          <button className="text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900 w-full">
                             Pay Now
                           </button>
                         </Link>
