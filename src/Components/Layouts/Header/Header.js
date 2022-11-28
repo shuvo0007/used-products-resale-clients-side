@@ -66,7 +66,10 @@ const Header = () => {
                   </>
                 ) : (
                   <>
-                    <Link className="text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2dark:focus:ring-yellow-900">
+                    <Link
+                      to="/private/myOrders"
+                      className="text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2dark:focus:ring-yellow-900"
+                    >
                       My Orders
                     </Link>
                   </>

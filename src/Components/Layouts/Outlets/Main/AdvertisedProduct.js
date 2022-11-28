@@ -15,16 +15,22 @@ const AdvertisedProduct = ({ product }) => {
     event.preventDefault();
     const form = event.target;
     const productName = form.productName.value;
+    const productId = product._id;
+    const productImage = product.image;
     const productPrice = form.productPrice.value;
     const buyerName = form.buyerName.value;
+    const buyerId = user?.uid;
     const buyerEmail = form.buyerEmail.value;
     const buyerNumber = form.buyerNumber.value;
     const location = form.location.value;
 
     const booking = {
       productName,
+      productId,
+      productImage,
       productPrice,
       buyerName,
+      buyerId,
       buyerEmail,
       buyerNumber,
       location,

@@ -65,7 +65,7 @@ export const routes = createBrowserRouter([
             <MyOrders></MyOrders>
           </Private>
         ),
-        loader: () => fetch("http://localhost:5000/selected-laptop"),
+        loader: () => fetch(`http://localhost:5000/selected-laptop`),
       },
       {
         path: "/private/myProducts",
