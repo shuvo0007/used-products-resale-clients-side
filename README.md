@@ -1,8 +1,8 @@
 Project Name: Apnar Laptop
 
-Client-side code github repository: https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-shuvo0007
+Client-side code github repository: https://github.com/shuvo0007/used-products-resale-clients-side
 
-Server-side code github repository: https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-shuvo0007
+Server-side code github repository: https://github.com/shuvo0007/used-products-resale-server-side
 
 Live website link: https://e-commerce-site-43e68.web.app/
 
