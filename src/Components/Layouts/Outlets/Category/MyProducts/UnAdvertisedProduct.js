@@ -11,13 +11,13 @@ const UnAdvertisedProduct = (unAdvertisedCount) => {
         <div className="hidden"></div>
       ) : (
         <div className="my-10">
-          <h2 className="ml-5 text-left text-4xl">UnAdvertised Product:</h2>
+          <h2 className="ml-5 text-left md:text-4xl text-2xl">UnAdvertised Product:</h2>
           <div>
             {allProducts.map((product) => {
               return product.advertised ? (
                 <></>
               ) : (
-                <div>
+                <div className="">
                   {product.paid ? (
                     <></>
                   ) : (

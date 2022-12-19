@@ -63,7 +63,7 @@ const ProductCard = ({ product }) => {
   return (
     <div className="">
       {product.userId == user.uid ? (
-        <div className="flex justify-between bg-white rounded-xl p-5 items-center m-2">
+        <div className="md:flex md:justify-between bg-white rounded-xl md:p-5 p-2 md:items-center m-2 ">
           <div
             className="flex items-center
             "
@@ -87,9 +87,11 @@ const ProductCard = ({ product }) => {
               </p>
             </div>
           </div>
-          <p className="text-left">Brand: {product.brand}</p>
-          <p className="text-left">Resale Price: {product.resalePrice}</p>
-          <div className=" flex items-center text-left">
+          <div className="md:ml-0 ml-20">
+            <p className="text-left">Brand: {product.brand}</p>
+            <p className="text-left">Resale Price: {product.resalePrice}</p>
+          </div>
+          <div className="flex items-center md:text-left">
             Availablity
             {product.paid ? (
               <>
@@ -97,7 +99,7 @@ const ProductCard = ({ product }) => {
               </>
             ) : (
               <>
-                <div className="flex items-center">
+                <div className="md:flex items-center ">
                   <p>: Available</p>
                   {product.advertised ? (
                     <>
@@ -118,24 +120,26 @@ const ProductCard = ({ product }) => {
               </>
             )}
           </div>
-          <Link
-            onClick={() => handleDelete(product._id)}
-            className="text-white bg-red-500 hover:text-white hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-xl text-lg px-5 py-2.5 text-center dark:focus:ring-yellow-900"
-          >
-            <RiDeleteBin6Line size={30} />
-            <ToastContainer
-              position="top-center"
-              autoClose={2000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="dark"
-            />
-          </Link>
+          <div className="w-60 h-60">
+            <Link
+              onClick={() => handleDelete(product._id)}
+              className="w-60 h-60 border-2 text-white bg-red-500 hover:text-white hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-xl text-lg px-5 py-2.5 text-center dark:focus:ring-yellow-900"
+            >
+              <RiDeleteBin6Line size={30} />
+              <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+              />
+            </Link>
+          </div>
         </div>
       ) : (
         <></>
