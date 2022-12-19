@@ -1,6 +1,6 @@
-import { Button, Label, Radio, TextInput } from "flowbite-react";
+import { Radio } from "flowbite-react";
 import React, { useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useTitle from "../../../../Hooks/useTitle";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
@@ -36,8 +36,8 @@ const Registration = () => {
   };
 
   return (
-    <div className="relative flex flex-col justify-center overflow-hidden py-20">
-      <div className="w-full p-12 m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 ring-2 ring-purple-600 lg:max-w-xl">
+    <div className="md:relative md:flex md:flex-col md:justify-center md:overflow-hidden md:py-20">
+      <div className="md:w-full md:p-12 p-5 md:m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 ring-2 ring-purple-600 lg:max-w-xl mx-5 mb-5">
         <h1 className="text-3xl font-semibold text-center text-purple-700 underline uppercase decoration-wavy">
           Registration
         </h1>

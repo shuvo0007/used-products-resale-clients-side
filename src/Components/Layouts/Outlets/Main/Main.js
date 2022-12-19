@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLoaderData } from "react-router-dom";
 import useTitle from "../../../../Hooks/useTitle";
 
@@ -9,8 +9,6 @@ import TopCarousel from "./TopCarousel";
 const Main = () => {
   useTitle("Home");
   const allProducts = useLoaderData();
-
-  
 
   let count = 0;
   return (
@@ -29,9 +27,9 @@ const Main = () => {
         );
       })}
       {count > 0 ? (
-        <div className="my-28 py-10 px-10 border-2  shadow-2xl bg-gray-200 rounded-xl text-xl">
-          <h2 className="yatra-font text-5xl my-10 underline">
-            List of Advertised laptop
+        <div className="my-28 py-10 md:px-10 border-2  shadow-2xl bg-gray-200 rounded-xl text-xl">
+          <h2 className="yatra-font md:text-5xl text-4xl my-10 underline">
+            Advertised laptop
           </h2>
           <div className="flex flex-wrap gap-10 justify-around">
             {allProducts

@@ -49,8 +49,8 @@ const LogIn = () => {
 
   return (
     <div>
-      <div className="relative flex flex-col justify-center overflow-hidden py-36">
-        <div className="w-full p-12  m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 ring-2 ring-purple-600 lg:max-w-xl">
+      <div className="md:relative md:flex md:flex-col md:justify-center md:overflow-hidden md:py-36">
+        <div className="md:w-full md:p-12 p-5 md:m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 ring-2 ring-purple-600 lg:max-w-xl mx-5 mb-5">
           <h1 className="text-3xl font-semibold text-center text-purple-700 underline uppercase decoration-wavy">
             Log IN 
           </h1>
@@ -127,7 +127,7 @@ const LogIn = () => {
             </div>
           </form>
 
-          <p className="mt-8 text-xs font-light text-center text-gray-700">
+          <p className="mt-8 font-light text-center text-gray-700">
             {" "}
             Don't have an account?{" "}
             <Link

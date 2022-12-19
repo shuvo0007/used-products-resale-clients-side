@@ -4,7 +4,7 @@ import React from "react";
 const TopCarousel = () => {
   return (
     <div>
-      <div className="custom-h">
+      <div className="custom-h mx-1">
         <Carousel slideInterval={3000}>
           <img
             className="custom-h"

@@ -8,9 +8,15 @@
 .yatra-font {
   font-family: "Yatra One", cursive;
 }
-
-.custom-h {
-  height: 65vh;
+@media only screen and (min-width: 768px) {
+  .custom-h {
+    height: 80vh;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .custom-h {
+    height: 50vh;
+  }
 }
 
 .App-logo {

@@ -14,16 +14,16 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center my-5 p-3 bg-black rounded-full">
-      <a href="/" className="flex items-center">
-        <img src={logo} alt="" />
+    <div className="md:flex md:justify-between md:items-center my-5 p-3 bg-black md:rounded-full rounded-lg">
+      <a href="/" className="md:flex md:items-center">
+        <img className="w-0 md:w-16" src={logo} alt="" />
         <img src="https://images.cooltext.com/5630645.png" alt="logo" />
       </a>
-      <div className="text-lg">
+      <div className="text-lg md:p-0 p-3">
         <Link
           to="/"
           type="button"
-          className="text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-5 dark:focus:ring-yellow-900"
+          className="text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-5 dark:focus:ring-yellow-900 "
         >
           Home
         </Link>
@@ -36,7 +36,7 @@ const Header = () => {
         </Link>
       </div>
       {user ? (
-        <div className="flex items-center">
+        <div className="flex items-center ">
           <div className="mr-5">
             {user.photoURL == "admin" ? (
               <>
@@ -90,7 +90,7 @@ const Header = () => {
           </button>
         </div>
       ) : (
-        <div className="">
+        <div className="md:p-0 p-3">
           <Link
             to="/login"
             className="text-gray-800 bg-yellow-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
